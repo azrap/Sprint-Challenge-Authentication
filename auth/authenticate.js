@@ -7,6 +7,8 @@ const jwtKey =
 // quickly see what this file exports
 module.exports = {
   authenticate,
+  jwtKey,
+  jwt
 };
 
 // implementation details
@@ -18,6 +20,8 @@ function authenticate(req, res, next) {
       if (err) return res.status(401).json(err);
 
       req.decoded = decoded;
+      
+      console.log(decoded);
 
       next();
     });
